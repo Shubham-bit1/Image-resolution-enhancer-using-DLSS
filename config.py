@@ -8,4 +8,7 @@ MENU_OPTION = [
     'About',
     'Creator info'
 ]
-UPLOAD_FOLDER='uploads'
+UPLOAD_FOLDER = 'uploads'
+OUTPUT_FOLDER = 'outputs'
+MODEL_FOLDER = 'DLSS_results'
+DATASET = "data"

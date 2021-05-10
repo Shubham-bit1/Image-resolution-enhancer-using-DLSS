@@ -7,8 +7,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from config import *
 import db
-from cv2 import dnn_superres
 import cv2
+from enhancer import resolution_dlss
 
 def open_db():
     engine = create_engine("sqlite:///db.sqlite3")
@@ -49,33 +49,11 @@ if choice == 'Enhance Resolution':
     sess = open_db()
     images = sess.query(db.Image).all()
     sess.close()
-    select_img = st.sidebar.radio("select an image",images)
-    if select_img:
-        im = Image.open(select_img.path)
-        st.image(im,use_column_width=True)
-        models = os.listdir('models')
-        models = [(os.path.join('models',name),name.split('_')[0].lower(),int(os.path.splitext(name)[0][-1])) for name in models]
-        images = []
-        st.warning("please wait while we perform resolution enhancement")
-        prog = st.progress(0)
-        img = cv2.imread(select_img.path)
-
-        scale4size = cv2.resize(img,(img.width*4,img.height*4))
-        images.append({'img':scale4size,'scale':'4 times','model':'none'})
-  
-        sr = dnn_superres.DnnSuperResImpl_create()
-        for idx, (path,name,scale) in enumerate(models):
-            try:
-                prog.progress((idx/len(models))*100)
-                print(idx, len(models),idx/len(models))
-            except:pass
-            with st.spinner(f'processing on scaling {scale}|{name}'):
-                sr.readModel(path)
-                sr.setModel(name,scale)
-                result = sr.upsample(img)
-                images.append({'img':result,'scale':scale,'model':name})
-                
-        # normal resize case
+    imagepaths = [img.path for img in images ]
+    with st.spinner("Please wait while DLSS works"):
+        result_list = resolution_dlss("DLSS_results\generator10.h5")
+        st.write(result_list)
+        st.success("DLSS task completed")
 
 if choice == 'Remove uploads':
     st.title('Remove uploads')   
