@@ -51,7 +51,7 @@ if choice == 'Enhance Resolution':
     sess.close()
     imagepaths = [img.path for img in images ]
     with st.spinner("Please wait while DLSS works"):
-        result_list = resolution_dlss("DLSS_results\generator10.h5")
+        result_list = resolution_dlss("DLSS_results\generator50.h5")
         st.write(result_list)
         st.success("DLSS task completed")
 
