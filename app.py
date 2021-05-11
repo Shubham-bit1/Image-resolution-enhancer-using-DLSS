@@ -52,8 +52,13 @@ if choice == 'Enhance Resolution':
     imagepaths = [img.path for img in images ]
     with st.spinner("Please wait while DLSS works"):
         result_list = resolution_dlss("DLSS_results\generator50.h5")
-        st.write(result_list)
+        # st.write(result_list)
         st.success("DLSS task completed")
+        for item in result_list:
+            c2,c3,c4 = st.beta_columns(3)
+            c2.image(item['resize128'],use_column_width=True,caption="orignal")
+            c3.image(item['normal_resize_2x'],use_column_width=True,caption='normal resized')
+            c4.image(item['dlss_2x'],use_column_width=True,caption='dlss')
 
 if choice == 'Remove uploads':
     st.title('Remove uploads')   
