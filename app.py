@@ -25,7 +25,7 @@ choice = st.sidebar.radio("Project menu", MENU_OPTION)
 
 if choice == 'Upload':
     st.title('Uploading image')
-    imgs = st.file_uploader("Choose a image to upload",type = ('JPG','PNG'),accept_multiple_files=True)
+    imgs = st.file_uploader("Choose a image to upload",type = ('jpg','png','jpeg'),accept_multiple_files=True)
     st.sidebar.info("Use small images of size below 256px resolution to see best effect of dlss")
     for imgdata in imgs:
         if imgdata:
