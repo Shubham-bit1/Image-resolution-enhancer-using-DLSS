@@ -60,15 +60,15 @@ if choice == 'Enhance Resolution':
         prog = st.progress(0)
         img = cv2.imread(select_img.path)
 
-        scale4size = cv2.resize(img,(img.width*4,img.height*4))
+        scale4size = cv2.resize(img,(img.shape[0]*4,img.shape[1]*4))
         images.append({'img':scale4size,'scale':'4 times','model':'none'})
   
         sr = dnn_superres.DnnSuperResImpl_create()
         for idx, (path,name,scale) in enumerate(models):
-            try:
-                prog.progress((idx/len(models))*100)
-                print(idx, len(models),idx/len(models))
-            except:pass
+            
+            #prog.progress((idx/len(models))*100)
+            print(idx, len(models),idx/len(models))
+        
             with st.spinner(f'processing on scaling {scale}|{name}'):
                 sr.readModel(path)
                 sr.setModel(name,scale)
