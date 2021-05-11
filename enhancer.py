@@ -78,7 +78,7 @@ def resolution_dlss(model_path = r'DLSS_results\generator90.h5',dataset_path = r
         axarr[2].imshow(result)
         
         # Save image
-        f.savefig(save_path + '\\frame_%d.png' % count)
+        Image.fromarray(result).save(os.path.join('outputs',os.path.basename(path)))
         
         # Increment file name counter
         count = count + 1
