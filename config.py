@@ -2,7 +2,7 @@ PROJECT_NAME = 'IMAGE RESOLUTION ENHANCER USING DLSS'
 CREATOR = 'SHUBHAM AND SIDIT'
 MENU_OPTION = [
     'Upload',
-    'training progress',
+    'Training progress',
     'Enhance Resolution',
     'Remove uploads',
     'About',

@@ -77,15 +77,21 @@ if choice == 'Remove uploads':
         sess.close()
         st.success('image removed successfully')     
 
-if choice =='training progress':
+if choice =='Training progress':
     for file in os.listdir('training_images'):
         st.image(os.path.join('training_images',file),use_column_width=True)
 if choice == 'About':
     st.title('What is the project')
-    st.write('Deep learning super sampling (DLSS) is an image up scaling algorithm developed by Nvidia  using deep learning to upscale lower-resolution images to a higher-resolution for display on higher-resolution computer monitors. This technology upscale images with quality similar to that of rendering the image natively in the higher-resolution but with less computation done by the video card allowing for higher graphical settings and frame rates for a given resolution.\n In this project we will use this topic i.e. Image Resolution Enhancement using DLSS and before starting this topic I think we should discuss about what actually Image Enhancing is – It means that using this technology we can improve the quality of the image with better resolution, quality and attractive look.\n The reason behind for making this project is better resolution of the image. Now a day’s everyone has this image issue problem that if we have a passport size photo and we want that photo in bigger size and when try to make that photo bigger in resolution then the pixel of that photo gets up and down and then the result is photo got blur. So in this project we come up with the better solution. This Image Enhancer will help you to get any type of photo with any resolution without getting photo blur with a better quality.')
+    st.write('Deep learning super sampling (DLSS) is an image up scaling algorithm developed by Nvidia  using deep learning to upscale lower-resolution images to a higher-resolution for display on higher-resolution computer monitors. This technology upscale images with quality similar to that of rendering the image natively in the higher-resolution but with less computation done by the video card allowing for higher graphical settings and frame rates for a given resolution.\n \n In this project we will use this topic i.e. Image Resolution Enhancement using DLSS and before starting this topic I think we should discuss about what actually Image Enhancing is – It means that using this technology we can improve the quality of the image with better resolution, quality and attractive look.\n The reason behind for making this project is better resolution of the image.\n \n Now a day’s everyone has this image issue problem that if we have a passport size photo and we want that photo in bigger size and when try to make that photo bigger in resolution then the pixel of that photo gets up and down and then the result is photo got blur. So in this project we come up with the better solution. This Image Enhancer will help you to get any type of photo with any resolution without getting photo blur with a better quality.')
+    st.image('a1.jpg')
+    st.image('a2.jpg')
+    st.image('a3.jpg')
+    st.image('a4.jpg')
    
 if choice == 'Creator info':
     st.title('Creators')   
     st.write('Creators are those who help to build this awesome project with a number of failures and hardwork by using number of tools and done it at the end with the full of joyness')
-    st.image('suuu.jpeg', caption='Shubham Rai',width=200)
-    st.image('sidit.jpg', caption='Sidit Srivastava',width=200)
+    d2,d3 = st.beta_columns(2)
+    d2.image('suuu.jpeg', caption='Hello everyone, I am Shubham Rai student of BCA 3rd year.',width=100)
+    d3.image('sidit.jpg', caption='Hello everyone, I am Sidit Srivastava student of BCA 3rd year.',width=100)
+    st.write('Together we have made this project, after doing a lot of research and testing, we have finally made the project in a very short time. All too often I see developers, students, and researchers wasting their time, studying the wrong things, and generally struggling to get started with Computer Vision, Deep Learning, and OpenCV. I created this website to show you what I believe is the best possible way to get your start.')
