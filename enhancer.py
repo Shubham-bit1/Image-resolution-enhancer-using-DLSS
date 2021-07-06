@@ -92,6 +92,8 @@ def resolution_dlss(model_path = r'DLSS_results\model.h5',dataset_path = r'uploa
                 })
             except Exception as e:
                 print(e)
+        else:
+            print("file does not exists")
     return output_list
 if __name__ == "__main__":
     print(resolution_dlss())
