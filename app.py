@@ -55,7 +55,6 @@ if choice == 'Enhance Resolution':
         result_list = resolution_dlss("DLSS_results\model.h5")
         # st.write(result_list)
         st.success("DLSS task completed")
-        st.write(result_list)
         for item in result_list:
             c2,c3,c4 = st.beta_columns(3)
             c2.image(item['resize128'],caption="orignal")
